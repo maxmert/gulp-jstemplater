@@ -83,8 +83,21 @@ module.exports = function( filename, options ) {
 
 		result = JSON.stringify(result);
 
-		if( options !== null && options !== undefined && options.variable !== undefined && options.variable !== null && options.variable !== '' )
-			result = "var " + options.variable + " = " + result + ";"
+		var isoptions = options !== null && options !== undefined;
+		var iscommonjs = ( isoptions && options.commonjs !== undefined && options.commonjs !== null && options.commonjs !== false );
+		var isvariable = ( isoptions && options.variable !== undefined && options.variable !== null && options.variable !== '' );
+
+		var intermediateResult = "";
+
+		if( isoptions )
+			if( iscommonjs ) {
+				intermediateResult = "exports";
+				if ( isvariable ) intermediateResult += "." + options.variable;
+
+				result = intermediateResult + " = " + result;
+			} else {
+				if ( isvariable ) result = "var " + options.variable + " = " + result + ";"
+			}
 
 		this.push(new gutil.File({
 			path: filename,

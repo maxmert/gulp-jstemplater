@@ -1,6 +1,6 @@
 {
   "name": "gulp-jstemplater",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Compiles all templates into one js variable.",
   "main": "index.js",
   "scripts": {
