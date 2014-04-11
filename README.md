@@ -19,7 +19,7 @@ If you have files
 
 ```javascript
 /path/layout.html
-/path/widgets/new.html
+/path/widgets/newone.html
 /path/widgets/old.html
 /path/widgets/sidebar/left.html
 /path/footer/bottom.html
@@ -31,7 +31,7 @@ then it will compile to `templates.js`:
 TMPL = {
     layout: "...",
     widgets: {
-        new: "...",
+        newone: "...",
         old: "...",
         sidebar: {
             left: "..."
@@ -53,7 +53,7 @@ Name of the variable. If it not provided, then jstemplater will compile to
 {
     layout: "...",
     widgets: {
-        new: "...",
+        newone: "...",
         old: "...",
         sidebar: {
             left: "..."
