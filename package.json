@@ -1,0 +1,36 @@
+{
+  "name": "gulp-jstemplater",
+  "version": "0.0.1",
+  "description": "Compiles all templates into one js variable.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxmert/gulp-jstemplater.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "templates",
+    "compile",
+    "jstemplater",
+    "mustache",
+    "handlebars"
+  ],
+  "author": "maxmert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxmert/gulp-jstemplater/issues"
+  },
+  "homepage": "https://github.com/maxmert/gulp-jstemplater",
+  "dependencies": {
+    "through2": "^0.4.1",
+    "gulp-util": "^2.2.14",
+    "glob": "^3.2.9"
+  },
+  "devDependencies": {
+    "assert": "^1.1.1",
+    "mocha": "^1.18.2"
+  }
+}
