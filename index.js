@@ -40,7 +40,7 @@ function buildJsonPath(path, filepath) {
 		res += '"' + node + '":' + buildJsonPath(path, filepath) + '}'
 	}
 	else if( path.length == 0 ) {
-		res += '"' + node[0].match(/(.*)\.[^.]+$/)[1] + '":"' + fs.readFileSync(filepath,{encoding:'utf8'}).replace(/\t/g,"").replace(/\n/g," ").replace(/"/g,'\\"') + '"}'
+		res += '"' + node[0].match(/(.*)\.[^.]+$/)[1] + '":"' + fs.readFileSync(filepath,{encoding:'utf8'}).replace(/"/g,'\\"') + '"}'
 	}
 	return res;
 }
@@ -70,7 +70,10 @@ module.exports = function( filename, options ) {
 		var paths = filepath.split('/')
 		var jsonpart = buildJsonPath(paths, file.path);
 
-		jsonpart = jsonpart.replace(/(\r\n|\n|\r|\t)/gm,"");
+		// jsonpart = jsonpart.replace(/(\r\n|\n|\r|\t)/gm,"");
+		jsonpart = jsonpart.replace(/(\r)/gm,"\\r");
+		jsonpart = jsonpart.replace(/(\n)/gm,"\\n");
+		jsonpart = jsonpart.replace(/(\t)/gm,"\\t");
 		jsonpart = jsonpart.replace(/>[\s]+</gm,"><");
 		jsonpart = jsonpart.replace(/[\s]{2,}/gm,"");
 		result = deepmerge(result, JSON.parse(jsonpart));
