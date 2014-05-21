@@ -94,7 +94,7 @@ module.exports = function( filename, options ) {
 
 		if( isoptions )
 			if( iscommonjs ) {
-				intermediateResult = "exports";
+				intermediateResult = "module.exports";
 				if ( isvariable ) intermediateResult += "." + options.variable;
 
 				result = intermediateResult + " = " + result;
